@@ -12,9 +12,6 @@ const handleErrorMessage = (type, userDetails) => {
 }
 
 function UserInputs({ userDetails, handleUserInput }) {
-
-    // console.log('user inputs');
-
     const [passwordVisibility, setPasswordVisibility] = useState(false);
 
     return (
@@ -63,43 +60,6 @@ function UserInputs({ userDetails, handleUserInput }) {
             </S.Wrapper >
         </>
     )
-
-    //     < Styled.InputWrapper userDetails = { userDetails } type = { 'name' } >
-    //         <label htmlFor={'name'}></label>
-    //         <Styled.Input
-    //             name={'name'}
-    //             id={'email'}
-    //             placeholder={'Full Name'}
-    //             value={userDetails.name}
-    //             type={name}
-    //             onChange={input => { handleInputChange(input, 'name') }}
-    //         />
-    // </Styled.InputWrapper >
-    //     <Styled.Error>{handleErrorMessage('name', userDetails)}</Styled.Error>
-    //     < Styled.InputWrapper userDetails={userDetails} type={'email'} >
-    //         <label htmlFor={'email'}></label>
-    //         <Styled.Input
-    //             name={'email'}
-    //             id={'email'}
-    //             placeholder={'Email'}
-    //             value={userDetails.email}
-    //             type={'email'}
-    //             onChange={input => { handleInputChange(input, 'email') }}
-    //         />
-    //     </Styled.InputWrapper >
-    //     <Styled.Error>{handleErrorMessage('email', userDetails)}</Styled.Error>
-    //     < Styled.InputWrapper userDetails={userDetails} type={'password'} >
-    //         <label htmlFor={'password'}></label>
-    //         <Styled.Input
-    //             name={'password'}
-    //             id={'password'}
-    //             placeholder={'Password'}
-    //             value={userDetails.password}
-    //             type={'password'}
-    //             onChange={input => { handleInputChange(input, 'password') }}
-    //         />
-    //     </Styled.InputWrapper >
-
 };
 
 export default UserInputs;
