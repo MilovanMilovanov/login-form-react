@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as S from './styles/MatrixRainEffect.style';
 
-
 const matrixCharacters = 'アカサタァナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
 
 function MatrixRainEffect({ rainCode, buttonAnimation, timeout = 45 }) {
