@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/login-form-react/static/css/main.afd7172b.chunk.css",
+    "main.js": "/login-form-react/static/js/main.26111881.chunk.js",
+    "main.js.map": "/login-form-react/static/js/main.26111881.chunk.js.map",
+    "runtime-main.js": "/login-form-react/static/js/runtime-main.2df193b2.js",
+    "runtime-main.js.map": "/login-form-react/static/js/runtime-main.2df193b2.js.map",
+    "static/js/2.5c571113.chunk.js": "/login-form-react/static/js/2.5c571113.chunk.js",
+    "static/js/2.5c571113.chunk.js.map": "/login-form-react/static/js/2.5c571113.chunk.js.map",
+    "static/js/3.54c22aa5.chunk.js": "/login-form-react/static/js/3.54c22aa5.chunk.js",
+    "static/js/3.54c22aa5.chunk.js.map": "/login-form-react/static/js/3.54c22aa5.chunk.js.map",
+    "index.html": "/login-form-react/index.html",
+    "static/css/main.afd7172b.chunk.css.map": "/login-form-react/static/css/main.afd7172b.chunk.css.map",
+    "static/js/2.5c571113.chunk.js.LICENSE.txt": "/login-form-react/static/js/2.5c571113.chunk.js.LICENSE.txt",
+    "static/media/Welcome message.477d8abb.m4a": "/login-form-react/static/media/Welcome message.477d8abb.m4a"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2df193b2.js",
+    "static/js/2.5c571113.chunk.js",
+    "static/css/main.afd7172b.chunk.css",
+    "static/js/main.26111881.chunk.js"
+  ]
+}
