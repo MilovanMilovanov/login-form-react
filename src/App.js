@@ -17,23 +17,14 @@ library.add(faTimes, faCheck, faEye, faEyeSlash);
 
 function App() {
   const [user, setUser] = useState({ name: '', email: '', password: '' });
-  const [bgColorSwitch, setBgColorSwitch] = useState(true);
-
-  console.log('rerender app component');
 
   const login = userDetails => {
-    // setUser({
-    //   name: userDetails.name,
-    //   email: userDetails.email,
-    //   password: userDetails.password
-    // });
     delayAndLoadUserAccount(userDetails);
     setBgColorSwitch(!bgColorSwitch);
   }
 
   const logout = () => {
     setUser({ name: '', email: '', password: '' });
-    setBgColorSwitch(!bgColorSwitch);
   };
 
   const delayAndLoadUserAccount = (userDetails) => {
@@ -47,7 +38,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={{ ...theme, bgColorSwitch }}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
       {user.name && <MatrixRain rainCode={user.name} />}
       <S.AppWrapper appStyle={user.name} >
