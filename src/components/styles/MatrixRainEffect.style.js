@@ -5,6 +5,7 @@ const fadeIn = keyframes`
     100% {opacity: 1}
 `;
 
+// Some of the styles didn't work in the style component itself, that's why i put them in an object
 export const Wrapper = styled.div`
 ${{
         overflow: 'hidden',
