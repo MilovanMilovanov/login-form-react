@@ -11,9 +11,6 @@ const requirements = [
 ]
 
 function PasswordRequirements({ userDetails }) {
-
-    // console.log('password validation');
-
     return (
         <S.Wrapper ispasswordempty={userDetails.password}>
             {
