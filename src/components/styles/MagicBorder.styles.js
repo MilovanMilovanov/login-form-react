@@ -14,8 +14,6 @@ export const MagicBorder = ({ width, color, duration, direction }) => css`
   &:before {
     content: '';
     position: absolute;
-    // animation: {color = '#0f0', animate} 2s linear infinite;
-    // filter: drop-shadow(-3px -3px 5px #0f0) brightness(300%);
     width: calc(100% + ${width} * 2);
     height: calc(100% + ${width} * 2);
     top: calc(${width} / -1);
@@ -40,7 +38,6 @@ export const MagicBorder = ({ width, color, duration, direction }) => css`
 }
   
     ${props => props.isFormValid !== undefined ?
-
     !props.disabled &&
     `&:before {
   background-size: 200% ${width}, ${width} 400%, ${width} 400%, 55% ${width},
@@ -58,15 +55,6 @@ export const MagicBorder = ({ width, color, duration, direction }) => css`
   transform: scaleX(1) rotate(calc(180deg * ${direction}));
   transition-delay: 0s, ${duration}, calc(${duration} * 2);
   z-index: -1;
-  // filter: drop-shadow(-2px -2px 5px #0f0);
-  
-  // test animation
-  // background-size: 200% ${width}, ${width} 400%, ${width} 400%, 55% ${width},
-  // 55% ${ width};
-  // background-position: -200% 100%, 0% 100%, 100% 100%, 100% 0%, 20% 0%;
-  // transform: scaleX(1) rotate(calc(180deg * ${direction}));
-  // transition-delay: 0s, ${duration}, calc(${duration} * 2);
-  // z-index: -1;
   }
 }`
   }`;
