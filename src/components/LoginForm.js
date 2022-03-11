@@ -4,7 +4,6 @@ import userData from '../userData';
 import UserInputs from './UserInputs';
 import PasswordRequirements from './PasswordRequirements';
 import Button from './Button';
-// import MatrixRain from './MatrixRainEffect';
 import * as S from '../components/styles/Title.style';
 
 
@@ -26,7 +25,6 @@ const handleFormValidation = (input, userDetails) => {
             }
             const password = {
                 emailName: !val.includes(getEmailName()),
-                // whitespace: val.replaceAll('•', ' ').match(/^[^\s].*[^\s]$/),
                 whitespace: val.match(/^[^\s].*[^\s]$/),
                 uppercase: val.match(/[A-Z]/),
                 lowercase: val.match(/[a-z]/),
@@ -45,7 +43,6 @@ const handleFormValidation = (input, userDetails) => {
 
 
 function LoginForm({ login }) {
-    // console.log('login form');
     const hasFetchedData = useRef(false);
     const [userDetails, setUserDetails] = useState({
         name: '',
@@ -82,7 +79,6 @@ function LoginForm({ login }) {
     const handleUserInput = (input, type) => {
         setUserDetails({
             ...userDetails,
-            // [type]: input.target.value.replaceAll('•', ' '),
             [type]: input.target.value,
             formValidation: { ...userDetails.formValidation, ...handleFormValidation(input, userDetails) }
         });
@@ -90,23 +86,17 @@ function LoginForm({ login }) {
 
     const isFormValid = Object.values(userDetails.formValidation).every(e => e && e);
 
-    console.log(isFormValid);
-
-
     const submitHandler = e => {
         e.preventDefault();
-        // const isFormValid = Object.values(userDetails.formValidation).every(e => e && e);
-
         if (isFormValid) login(userDetails);
     }
 
     return (
         <form onSubmit={submitHandler}>
-            <S.Title isFormValid={''}>login</S.Title>
+            <S.Title>login</S.Title>
             <UserInputs userDetails={userDetails} handleUserInput={handleUserInput} />
             <PasswordRequirements userDetails={userDetails} />
             <Button props={{ userDetails, isFormValid, buttonPurpose: login }} />
-            {/* {isFormValid && <MatrixRain rainCode={userDetails.name} />} */}
         </form >
     )
 }
