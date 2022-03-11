@@ -7,7 +7,7 @@ background: ${props => props.appStyle ?
         :
         'white'
     };
-    oveflow: hidden;
+oveflow: hidden;
 border-radius: ${props => props.theme.primaryBorderRadius};
 padding: ${props => props.theme.primaryPadding};
 ${MagicBorder({ width: '3px', color: 'rgba(121, 214, 250, 0.9)', duration: '0.3s', direction: '0' })};
