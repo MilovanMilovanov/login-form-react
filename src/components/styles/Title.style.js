@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Title = styled.h2`
     padding: 20px;
-    color: ${props => props.theme.primaryColor};
+    color: ${props => props.theme.titleColor};
     ${props => props.isFormValid &&
-        `color: white;
+        `text-transform: uppercase;
          letter-spacing: 0.2em;
-         text-transform: uppercase;
          text-align: center;
+         color: white;
          text-shadow: 0 0 5px #0f0,
          0 0 6px #0f0,
          0 0 7px #0f0,
@@ -17,5 +17,4 @@ export const Title = styled.h2`
          0 0 30px #0f0;
          transition: color 1s, letter-spacing 0.7s, text-shadow 3s;
          `
-        }
-`;
+    }`;
