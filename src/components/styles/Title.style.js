@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Title = styled.h2`
-    padding: 20px;
+    padding: 15px 20px 25px 20px;
     color: ${props => props.theme.titleColor};
     ${props => props.children !== 'login' &&
         `
          letter-spacing: 0.2em;
-         text-align: center;
          color: white;
          text-shadow: 0 0 5px #0f0,
          0 0 6px #0f0,
