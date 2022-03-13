@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Title = styled.h2`
     padding: 20px;
     color: ${props => props.theme.titleColor};
-    ${props => props.isFormValid &&
-        `text-transform: uppercase;
+    ${props => props.children !== 'login' &&
+        `
          letter-spacing: 0.2em;
          text-align: center;
          color: white;
@@ -17,4 +17,5 @@ export const Title = styled.h2`
          0 0 30px #0f0;
          transition: color 1s, letter-spacing 0.7s, text-shadow 3s;
          `
-    }`;
+        }
+`;
