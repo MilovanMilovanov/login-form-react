@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import * as S from './styles/Button.style';
 import MatrixRain from './MatrixRainEffect';
+import * as S from './styles/Button.style';
 
 function Button({ props }) {
     const [disable, setDisable] = useState(true);
