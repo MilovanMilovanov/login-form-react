@@ -29,35 +29,32 @@ export const MagicBorder = ({ width, color, duration, direction }) => css`
     background-repeat: no-repeat, no-repeat;
     transition: transform ${duration} ease-in-out,
       background-position ${duration} ease-in-out,
-      background-size ${duration} ease-in-out;
+    background-size ${duration} ease-in-out;
     transform: scaleX(0) rotate(calc(180deg * ${direction}));
     transition-delay: calc(${duration} * 2), ${duration}, 0s;
   };
-
-  &:before {
-}
   
-    ${props => props.isFormValid !== undefined ?
+  ${props => props.isFormValid !== undefined ?
     !props.disabled &&
-    `&:before {
-  background-size: 200% ${width}, ${width} 400%, ${width} 400%, 55% ${width},
-  55% ${width};
-  background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
-  transform: scaleX(1) rotate(calc(180deg * ${direction}));
-  transition-delay: 0s, ${duration}, calc(${duration} * 2);
-  }`
+     `&:before {
+       background-size: 200% ${width}, ${width} 400%, ${width} 400%, 55% ${width},
+       55% ${width};
+       background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+       transform: scaleX(1) rotate(calc(180deg * ${direction}));
+       transition-delay: 0s, ${duration}, calc(${duration} * 2);
+     }`
     :
-    `&:hover {
+  `&:hover {
     &:before {
-  background-size: 200% ${ width}, ${width} 400%, ${width} 400%, 55% ${width},
-  55% ${ width};
-  background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
-  transform: scaleX(1) rotate(calc(180deg * ${direction}));
-  transition-delay: 0s, ${duration}, calc(${duration} * 2);
-  z-index: -1;
-  }
-}`
-  }`;
+      background-size: 200% ${ width}, ${width} 400%, ${width} 400%, 55% ${width},
+      55% ${ width};
+      background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+      transform: scaleX(1) rotate(calc(180deg * ${direction}));
+      transition-delay: 0s, ${duration}, calc(${duration} * 2);
+      z-index: -1;
+    }
+  }`
+ }`;
 
 
 
