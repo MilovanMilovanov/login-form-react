@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import userData from '../userData';
-import UserInputs from './UserInputs';
 import PasswordRequirements from './PasswordRequirements';
+import UserInputs from './UserInputs';
+import userData from '../userData';
 import Button from './Button';
-import * as S from '../components/styles/Title.style';
-
+import Title from './Title';
 
 const handleFormValidation = (input, userDetails) => {
     const val = input.target.value;
@@ -75,15 +74,6 @@ function LoginForm({ login }) {
         }
     }, [userDetails]);
 
-
-    const handleUserInput = (input, type) => {
-        setUserDetails({
-            ...userDetails,
-            [type]: input.target.value,
-            formValidation: { ...userDetails.formValidation, ...handleFormValidation(input, userDetails) }
-        });
-    }
-
     const isFormValid = Object.values(userDetails.formValidation).every(e => e && e);
 
     const submitHandler = e => {
@@ -93,8 +83,8 @@ function LoginForm({ login }) {
 
     return (
         <form onSubmit={submitHandler}>
-            <S.Title>login</S.Title>
-            <UserInputs userDetails={userDetails} handleUserInput={handleUserInput} />
+            <Title title='login' />
+            <UserInputs props={{userDetails, setUserDetails, handleFormValidation}} />
             <PasswordRequirements userDetails={userDetails} />
             <Button props={{ userDetails, isFormValid, buttonPurpose: login }} />
         </form >
