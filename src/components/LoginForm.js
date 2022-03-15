@@ -18,7 +18,7 @@ const handleFormValidation = (input, userDetails) => {
         }
         default: {
             const getEmailName = () => {
-                let emailName = userDetails.email.match(/^\w+([.-]?\w+)*/);
+                const emailName = userDetails.email.match(/^\w+([.-]?\w+)*/);
                 if (emailName) return emailName[0];
                 return false;
             }
