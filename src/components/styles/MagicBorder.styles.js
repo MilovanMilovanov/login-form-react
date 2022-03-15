@@ -1,13 +1,4 @@
-import { css, keyframes } from "styled-components";
-
-const animate = keyframes`
-0% {
-  background-position: 100% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
-}
-100% {
-  background-position: -150% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
-}
-`
+import { css } from "styled-components";
 
 export const MagicBorder = ({ width, color, duration, direction }) => css`
   position: relative;
