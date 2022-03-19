@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import PasswordRequirements from './PasswordRequirements';
 import UserInputs from './UserInputs';
@@ -42,7 +42,6 @@ const handleFormValidation = (input, userDetails) => {
 
 
 function LoginForm({ login }) {
-    const hasFetchedData = useRef(false);
     const [userDetails, setUserDetails] = useState({
         name: '',
         email: '',
@@ -62,17 +61,13 @@ function LoginForm({ login }) {
         }
     });
 
-
     useEffect(() => {
-        if (!hasFetchedData.current) {
-            userData()
-                .then(userData => {
-                    setUserDetails({ ...userDetails, ...userData.user });
-                })
-                .catch(err => console.log(err));
-            hasFetchedData.current = true;
-        }
-    }, [userDetails]);
+        userData()
+            .then(userData => {
+                setUserDetails({ ...userDetails, ...userData.user });
+            })
+            .catch(err => console.log(err));
+    }, []);
 
     const isFormValid = Object.values(userDetails.formValidation).every(e => e && e);
 
