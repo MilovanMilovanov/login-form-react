@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Title = styled.h2`
-    padding: 15px 20px 25px 20px;
+    padding: .3em 0 1em .5em;
     color: ${props => props.theme.titleColor};
     ${props => props.children !== 'login' &&
         `text-shadow: 0 0 5px #0f0,
