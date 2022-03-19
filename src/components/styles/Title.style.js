@@ -12,8 +12,8 @@ export const Title = styled.h2`
          0 0 25px #0f0,
          0 0 30px #0f0;
          letter-spacing: 0.2em;
-         color: white;
          text-align: center;
+         color: white;
          transition: color 1s, letter-spacing 0.7s, text-shadow 3s;
          `
         }
