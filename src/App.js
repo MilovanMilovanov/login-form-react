@@ -20,7 +20,6 @@ function App() {
 
   const login = userDetails => {
     delayAndLoadUserAccount(userDetails);
-    setBgColorSwitch(!bgColorSwitch);
   }
 
   const logout = () => {
