@@ -3,13 +3,14 @@ import React from "react";
 import VoiceMessage from "./VoiceMessage";
 import Button from "./Button";
 import Title from './Title';
+import * as S from '../components/styles/Title.style';
 
 function UserAccount({ user, logout }) {
     return (
         <>
             <VoiceMessage />
-            <Title title={`Welcome, ${user.name}`} />
-            <Button props={{ buttonPurpose: logout }} />
+            <Title username={user.name} />
+            <Button logout={logout} />
         </>
     )
 }
