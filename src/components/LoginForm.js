@@ -75,7 +75,7 @@ function LoginForm({ login }) {
 
     return (
         <form onSubmit={submitHandler}>
-            <Title title={<S.Title>login</S.Title>}/>
+            <Title />
             <UserInputs props={{ userDetails, setUserDetails, handleFormValidation }} />
             <PasswordValidation userDetails={userDetails} />
             <Button userDetails={userDetails} validateForm={validateForm}/>
