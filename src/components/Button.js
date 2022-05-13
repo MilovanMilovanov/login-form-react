@@ -2,33 +2,32 @@ import React, { useState, useEffect, useCallback } from 'react';
 import MatrixRain from './MatrixRainEffect';
 import * as S from './styles/Button.style';
 
-function Button({ props }) {
+function Button({ userDetails, validateForm, logout }) {
     const [disable, setDisable] = useState(true);
-    const [buttonAnimation, setButtonAnimation] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(false);
 
     const areUserDetailsEmpty = useCallback(() => {
-        if (props.userDetails) return !Object.values(props.userDetails).every(e => e !== '');
-    }, [props.userDetails]);
+        if (userDetails) return !Object.values(userDetails).every(e => e !== '');
+    }, [userDetails]);
 
-    useEffect(() => {
-        setDisable(areUserDetailsEmpty());
-    }, [areUserDetailsEmpty]);
-
+    useEffect(() =>
+        setDisable(areUserDetailsEmpty()),
+        [areUserDetailsEmpty]
+    );
 
     return (
         <>
             <S.Button
                 type="submit"
                 disabled={disable}
-                isFormValid={props.isFormValid}
-                formTitleAnimation={buttonAnimation}
+                isFormValid={isFormValid}
                 onClick={() => {
-                    props.buttonPurpose.name === 'logout' && props.buttonPurpose()
-                    setButtonAnimation(!buttonAnimation);
+                    if (logout) return logout();
+                    if (validateForm()) setIsFormValid(true);
                 }}
             >
-                {buttonAnimation && props.isFormValid && <MatrixRain rainCode={'01'} buttonAnimation={true} />}
-                {props.buttonPurpose.name}
+                {isFormValid && <MatrixRain rainCode={'01'} buttonAnimation={true} />}
+                {userDetails ? 'login' : 'logout'}
             </S.Button>
         </>
     )
