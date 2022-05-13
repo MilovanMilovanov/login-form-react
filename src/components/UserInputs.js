@@ -1,71 +1,68 @@
 import React, { useState } from 'react';
+import InputErrorHandle from './InputErrorHandle';
 import * as S from './styles/UserInputs.style';
 
-const handleErrorMessage = (type, userDetails) => {
-    if (!userDetails.formValidation[type]) {
-        const errorMessages = {
-            name: 'Name must contain atleast two words!',
-            email: 'Invalid email format!'
-        };
-        return errorMessages[type];
-    }
-}
-
-const handleUserInput = (props, input, type) => {
+const handleUserInputChange = (props, input) => {
     props.setUserDetails({
         ...props.userDetails,
-        [type]: input.target.value,
-        formValidation: { ...props.userDetails.formValidation, ...props.handleFormValidation(input, props.userDetails) }
+        [input.target.id]: input.target.value,
+        formValidation: {
+            ...props.userDetails.formValidation,
+            ...props.handleFormValidation(input, props.userDetails)
+        }
     });
 }
 
 function UserInputs({ props }) {
     const [passwordVisibility, setPasswordVisibility] = useState(false);
-
     return (
         <>
-            <S.Wrapper userDetails={props.userDetails} type={'name'} >
+            <S.inputWrapper
+                {...props.userDetails}
+                type='name'
+            >
                 <label htmlFor='name'></label>
                 <S.Input
+                    id='name'
                     name='name'
                     type='name'
-                    id='name'
-                    placeholder='Full Name'
                     value={props.userDetails.name}
-                    onChange={input => handleUserInput(props, input, 'name')}
+                    placeholder='Full Name'
+                    onChange={input => handleUserInputChange(props, input)}
                 />
-            </S.Wrapper >
-            <S.Error>{handleErrorMessage('name', props.userDetails)}</S.Error>
+            </S.inputWrapper >
+            <InputErrorHandle type='name' isInputTypeValid={props.userDetails.formValidation.name} />
 
-            <S.Wrapper userDetails={props.userDetails} type={'email'} >
-                <label htmlFor='email'></label>
+            <S.inputWrapper
+                {...props.userDetails}
+                type='email'
+            >
                 <S.Input
+                    id='email'
                     name='email'
                     type='email'
-                    id='email'
-                    placeholder='Email'
                     value={props.userDetails.email}
-                    onChange={input => handleUserInput(props, input, 'email')}
+                    placeholder='Email'
+                    onChange={input => handleUserInputChange(props, input)}
                 />
-            </S.Wrapper >
-            <S.Error>{handleErrorMessage('email', props.userDetails)}</S.Error>
+            </S.inputWrapper >
+            <InputErrorHandle type='email' isInputTypeValid={props.userDetails.formValidation.email} />
 
-            <S.Wrapper userDetails={props.userDetails} type={'password'} >
-                <label htmlFor='password'></label>
+            <S.inputWrapper>
                 <S.Input
+                    id='password'
                     name='password'
                     type={passwordVisibility ? 'text' : 'password'}
-                    id='password'
-                    placeholder='Password'
                     value={props.userDetails.password}
-                    onChange={input => handleUserInput(props, input, 'password')}
+                    placeholder='Password'
+                    onChange={input => handleUserInputChange(props, input)}
                 />
-                <S.AwesomeEye
+                <S.PasswordVisibilityIcon
                     ispasswordempty={props.userDetails.password}
                     icon={passwordVisibility ? 'eye' : 'eye-slash'}
                     onClick={() => setPasswordVisibility(!passwordVisibility)}
                 />
-            </S.Wrapper >
+            </S.inputWrapper >
         </>
     )
 };
